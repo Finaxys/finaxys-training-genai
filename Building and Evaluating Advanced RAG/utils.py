@@ -28,7 +28,7 @@ def get_hf_api_key():
 
     return os.getenv("HUGGINGFACE_API_KEY")
 
-openai = OpenAI()
+openai = OpenAI(api_key=get_openai_api_key())
 
 qa_relevance = (
     Feedback(openai.relevance_with_cot_reasons, name="Answer Relevance")

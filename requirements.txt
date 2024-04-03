@@ -33,4 +33,8 @@ llama-index-embeddings-mistralai>=0.1.4
 langchain_mistralai>=0.1.0
 redlines>=0.4.2
 panel==1.4.0
+#whylogs==1.3.28
+#langkit==0.0.31
 # utils==1.0.2
+umap-learn==0.5.6
+boto3>=1.33.6
