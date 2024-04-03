@@ -163,3 +163,4 @@ cython_debug/
 /Building and Evaluating Advanced RAG/merging_index
 /Building and Evaluating Advanced RAG/sentence_index
 Building and Evaluating Advanced RAG/default.sqlite
+/Functions, Tools and Agents with Langchain/data/chroma
