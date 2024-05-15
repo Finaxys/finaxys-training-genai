@@ -159,13 +159,13 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /.idea
-/Building and Evaluating Advanced RAG/.streamlit
-/Building and Evaluating Advanced RAG/merging_index
-/Building and Evaluating Advanced RAG/sentence_index
-Building and Evaluating Advanced RAG/default.sqlite
-/Functions, Tools and Agents with Langchain/data/chroma
+/07 - Building and Evaluating Advanced RAG/.streamlit
+/07 - Building and Evaluating Advanced RAG/merging_index
+/07 - Building and Evaluating Advanced RAG/sentence_index
+07 - Building and Evaluating Advanced RAG/default.sqlite
+/04 - Functions, Tools and Agents with Langchain/data/chroma
 .DS_Store
-/Building and Evaluating Advanced RAG/merging_index_0
-/Building and Evaluating Advanced RAG/merging_index_1
-/Building and Evaluating Advanced RAG/sentence_index_1
-/Building and Evaluating Advanced RAG/sentence_index_3
+/07 - Building and Evaluating Advanced RAG/merging_index_0
+/07 - Building and Evaluating Advanced RAG/merging_index_1
+/07 - Building and Evaluating Advanced RAG/sentence_index_1
+/07 - Building and Evaluating Advanced RAG/sentence_index_3
