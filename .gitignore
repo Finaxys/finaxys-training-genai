@@ -170,3 +170,6 @@ cython_debug/
 /07 - Building and Evaluating Advanced RAG/sentence_index_1
 /07 - Building and Evaluating Advanced RAG/sentence_index_3
 /test/
+/03 - Langchain - Chat with your Data/docs/chroma
+03 - Langchain - Chat with your Data/docs/chroma/chroma.sqlite3
+03 - Langchain - Chat with your Data/docs/chroma/chroma.sqlite3
