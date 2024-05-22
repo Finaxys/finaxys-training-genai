@@ -8,10 +8,9 @@ import numpy as np
 from trulens_eval import (
     Feedback,
     TruLlama,
-    OpenAI
+    OpenAI, Select
 )
 
-from trulens_eval.feedback import Groundedness
 import nest_asyncio
 
 nest_asyncio.apply()
@@ -43,13 +42,12 @@ qs_relevance = (
 )
 
 #grounded = Groundedness(groundedness_provider=openai, summarize_provider=openai)
-grounded = Groundedness(groundedness_provider=openai)
+# grounded = Groundedness(groundedness_provider=openai)
 
 groundedness = (
-    Feedback(grounded.groundedness_measure_with_cot_reasons, name="Groundedness")
-        .on(TruLlama.select_source_nodes().node.text)
-        .on_output()
-        .aggregate(grounded.grounded_statements_aggregator)
+    Feedback(openai.groundedness_measure_with_cot_reasons, name = "Groundedness")
+    .on(Select.RecordCalls.retrieve.rets.collect())
+    .on_output()
 )
 
 feedbacks = [qa_relevance, qs_relevance, groundedness]

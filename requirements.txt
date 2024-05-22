@@ -42,3 +42,5 @@ yt_dlp
 pydub
 lark
 openapi-pydantic>=0.4.0
+protobuf>=4.23.2
+sqlalchemy>=2.0.19
