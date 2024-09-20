@@ -26,7 +26,8 @@ faiss-cpu>=1.8.0
 wikipedia>=1.4.0
 pathlib>=1.0.1
 pytest>=8.1.1
-trulens_eval>=0.27.0
+trulens_eval==0.31.1
+trulens==0.13.4
 mistralai>=0.1.8
 llama-index-llms-mistralai>=0.1.10
 llama-index-embeddings-mistralai>=0.1.4

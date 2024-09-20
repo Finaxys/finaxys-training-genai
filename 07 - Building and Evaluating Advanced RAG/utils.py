@@ -68,7 +68,7 @@ def get_prebuilt_trulens_recorder(query_engine, app_id):
         )
     return tru_recorder
 
-from llama_index.core import ServiceContext, VectorStoreIndex, StorageContext
+from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.core.node_parser import SentenceWindowNodeParser
 from llama_index.core.postprocessor import MetadataReplacementPostProcessor
 from llama_index.core.postprocessor import SentenceTransformerRerank
@@ -85,20 +85,18 @@ def build_sentence_window_index(
         window_metadata_key="window",
         original_text_metadata_key="original_text",
     )
-    sentence_context = ServiceContext.from_defaults(
-        llm=llm,
-        embed_model=embed_model,
-        node_parser=node_parser,
-    )
     if not os.path.exists(save_dir):
         sentence_index = VectorStoreIndex.from_documents(
-            [document], service_context=sentence_context
+            [document],
+            embed_model=embed_model,
+            node_parser=node_parser
         )
         sentence_index.storage_context.persist(persist_dir=save_dir)
     else:
         sentence_index = load_index_from_storage(
             StorageContext.from_defaults(persist_dir=save_dir),
-            service_context=sentence_context,
+            embed_model=embed_model,
+            node_parser=node_parser
         )
 
     return sentence_index
@@ -141,22 +139,18 @@ def build_automerging_index(
     node_parser = HierarchicalNodeParser.from_defaults(chunk_sizes=chunk_sizes)
     nodes = node_parser.get_nodes_from_documents(documents)
     leaf_nodes = get_leaf_nodes(nodes)
-    merging_context = ServiceContext.from_defaults(
-        llm=llm,
-        embed_model=embed_model,
-    )
     storage_context = StorageContext.from_defaults()
     storage_context.docstore.add_documents(nodes)
 
     if not os.path.exists(save_dir):
         automerging_index = VectorStoreIndex(
-            leaf_nodes, storage_context=storage_context, service_context=merging_context
+            leaf_nodes, storage_context=storage_context, embed_model=embed_model
         )
         automerging_index.storage_context.persist(persist_dir=save_dir)
     else:
         automerging_index = load_index_from_storage(
             StorageContext.from_defaults(persist_dir=save_dir),
-            service_context=merging_context,
+            embed_model=embed_model
         )
     return automerging_index
 
