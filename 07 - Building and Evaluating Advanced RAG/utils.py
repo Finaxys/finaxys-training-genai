@@ -44,13 +44,9 @@ qs_relevance = (
 #grounded = Groundedness(groundedness_provider=openai, summarize_provider=openai)
 # grounded = Groundedness(groundedness_provider=openai)
 
-groundedness = (
-    Feedback(openai.groundedness_measure_with_cot_reasons, name = "Groundedness")
-    .on(Select.RecordCalls.retrieve.rets.collect())
-    .on_output()
-)
 
-feedbacks = [qa_relevance, qs_relevance, groundedness]
+feedbacks = [qa_relevance, qs_relevance]
+#             , groundedness]
 
 def get_trulens_recorder(query_engine, feedbacks, app_id):
     tru_recorder = TruLlama(
